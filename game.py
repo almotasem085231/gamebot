@@ -98,6 +98,7 @@ CHARACTERS = {
         {"name": "علم الإمارات", "desc": "أحمر، أخضر، أبيض، وأسود، تمثل الوحدة العربية", "link": "https://www.google.com/search?q=علم+الإمارات"},
         {"name": "علم الأردن", "desc": "أسود، أبيض، أخضر مع مثلث أحمر ونجمة سباعية، يرمز للوحدة والحرية", "link": "https://www.google.com/search?q=علم+الأردن"},
         {"name": "علم قطر", "desc": "أبيض وعنابي مع تسعة رؤوس مثلثية، يرمز للهوية والثقافة", "link": "https://www.google.com/search?q=علم+قطر"},
+
         {"name": "علم المملكة المتحدة", "desc": "يتكون من تداخل أعلام إنجلترا واسكتلندا وإيرلندا، يرمز للوحدة الملكية", "link": "https://www.google.com/search?q=علم+المملكة+المتحدة"},
         {"name": "علم إسبانيا", "desc": "شريطان أحمران وشريط أصفر يتوسطه شعار الدولة", "link": "https://www.google.com/search?q=علم+إسبانيا"},
         {"name": "علم البرتغال", "desc": "أخضر وأحمر مع شعار يتوسطه درع وكرة أرضية، يرمز للاكتشافات البحرية", "link": "https://www.google.com/search?q=علم+البرتغال"},
@@ -105,15 +106,18 @@ CHARACTERS = {
         {"name": "علم ألمانيا", "desc": "أسود، أحمر، ذهبي، يرمز للوحدة والحرية", "link": "https://www.google.com/search?q=علم+ألمانيا"},
         {"name": "علم السويد", "desc": "أزرق مع صليب أصفر، يرمز للمسيحية والتراث الإسكندنافي", "link": "https://www.google.com/search?q=علم+السويد"},
         {"name": "علم فنلندا", "desc": "أبيض مع صليب أزرق، يرمز للثلج والبحيرات", "link": "https://www.google.com/search?q=علم+فنلندا"},
+
         {"name": "علم الهند", "desc": "زعفراني، أبيض، أخضر مع عجلة دارما زرقاء في الوسط", "link": "https://www.google.com/search?q=علم+الهند"},
         {"name": "علم إندونيسيا", "desc": "شريطان أفقيان: أحمر وأبيض، يرمز للشجاعة والنقاء", "link": "https://www.google.com/search?q=علم+إندونيسيا"},
         {"name": "علم باكستان", "desc": "أخضر مع هلال ونجمة بيضاء وشريط جانبي أبيض، يرمز للإسلام", "link": "https://www.google.com/search?q=علم+باكستان"},
         {"name": "علم الفلبين", "desc": "أزرق، أحمر، مثلث أبيض مع نجمة وشمس، يرمز للحرية", "link": "https://www.google.com/search?q=علم+الفلبين"},
         {"name": "علم فيتنام", "desc": "أحمر مع نجمة صفراء في المنتصف، يرمز للقيادة الشيوعية", "link": "https://www.google.com/search?q=علم+فيتنام"},
+
         {"name": "علم البرازيل", "desc": "أخضر مع معين أصفر وكرة زرقاء مع شعار ونجوم تمثل السماء", "link": "https://www.google.com/search?q=علم+البرازيل"},
         {"name": "علم الأرجنتين", "desc": "أزرق فاتح وأبيض مع شمس ذهبية، يرمز للحرية", "link": "https://www.google.com/search?q=علم+الأرجنتين"},
         {"name": "علم المكسيك", "desc": "أخضر وأبيض وأحمر مع نسر يأكل أفعى، يرمز للأسطورة الأزتيكية", "link": "https://www.google.com/search?q=علم+المكسيك"},
         {"name": "علم كوبا", "desc": "خمسة خطوط زرقاء وبيضاء مع مثلث أحمر ونجمة بيضاء، يرمز للحرية", "link": "https://www.google.com/search?q=علم+كوبا"},
+
         {"name": "علم جنوب أفريقيا", "desc": "أخضر، أسود، أصفر، أزرق، وأبيض وأحمر، يرمز للوحدة والتنوع", "link": "https://www.google.com/search?q=علم+جنوب+إفريقيا"},
         {"name": "علم نيجيريا", "desc": "أخضر، أبيض، أخضر، يرمز للزراعة والسلام", "link": "https://www.google.com/search?q=علم+نيجيريا"},
         {"name": "علم مصر", "desc": "أحمر، أبيض، وأسود مع نسر ذهبي", "link": "https://www.google.com/search?q=علم+مصر"},
@@ -175,19 +179,19 @@ class GameBot:
             return
 
         games[chat_id] = {
-            'status': 'waiting_category_selection',
+            'status': 'waiting_category_selection', 
             'creator_id': user_id,
-            'players': [],
-            'current_turn': 0,
+            'players': [], 
+            'current_turn': 0, 
             'round': 1,
-            'max_rounds': 3,
-            'scores': {},
+            'max_rounds': 3, 
+            'scores': {}, 
             'characters': {}, # for 1v1 mapping player_id to character
             'team_characters': {}, # for teams mapping team_name to character
             'waiting_for_answer': False,
-            'question_asker': None,
+            'question_asker': None, 
             'answerer_id': None,
-            'pending_guess_confirmation': None, # Keep for potential future use or specific guess logic
+            'pending_guess_confirmation': None,
             'game_type': None, # '1v1' or 'teams'
             'team_size': None, # 2 or 3 for teams
             'teams': {'blue': [], 'red': []},
@@ -268,8 +272,7 @@ class GameBot:
                 "• كل لاعب يحصل على شخصية عشوائية من فئة **" + game['selected_category'] + "**\n"
                 "• اللاعبون يتناوبون طرح أسئلة نعم/لا\n"
                 "• الهدف تخمين شخصية الخصم\n"
-                f"• اللعبة ستستمر لـ {games[chat_id]['max_rounds']} جولات.\n"
-                "• يمكن للاعب الذي يتعرض للتخمين أو يقر بعدم قدرته على الاستمرار أن يستخدم أمر /approve لمنح النقطة للخصم وإنهاء الجولة.\n\n"
+                f"• اللعبة ستستمر لـ {games[chat_id]['max_rounds']} جولات.\n\n"
                 "اضغط على الزر للانضمام!",
                 reply_markup=reply_markup, parse_mode='Markdown'
             )
@@ -315,8 +318,7 @@ class GameBot:
             f"عدد اللاعبين المطلوب لكل فريق: {team_size}\n"
             "اضغط على الزر للانضمام إلى فريق!\n\n"
             f"الفريق الأزرق: {len(game['teams']['blue'])}/{team_size}\n"
-            f"الفريق الأحمر: {len(game['teams']['red'])}/{team_size}\n"
-            "• يمكن لأي عضو في الفريق الذي يتعرض للتخمين أو يقر بعدم قدرته على الاستمرار أن يستخدم أمر /approve لمنح النقطة للفريق الخصم وإنهاء الجولة.",
+            f"الفريق الأحمر: {len(game['teams']['red'])}/{team_size}",
             reply_markup=reply_markup, parse_mode='Markdown'
         )
 
@@ -331,23 +333,23 @@ class GameBot:
         if not game or game.get('status') != 'waiting_players' or game.get('game_type') != '1v1':
             await query.answer("اللعبة بدأت بالفعل أو لا توجد لعبة 1v1 نشطة!", show_alert=True)
             return
-
+        
         if user_id in [p['id'] for p in game['players']]:
             await query.answer("أنت مشترك بالفعل في اللعبة!", show_alert=True)
             return
         if len(game['players']) >= 2:
             await query.answer("اللعبة ممتلئة!", show_alert=True)
             return
-
+        
         game['players'].append({'id': user_id, 'name': username})
         game['scores'][user_id] = 0
 
         players_joined_names = [p['name'] for p in game['players']]
-
+        
         if len(game['players']) == 1:
             keyboard = [[InlineKeyboardButton("🎮 انضمام للعبة", callback_data="join_game_1v1")]]
             reply_markup = InlineKeyboardMarkup(keyboard)
-
+            
             await query.edit_message_text(
                 f"✅ **{username} انضم للعبة!**\n\n"
                 f"اللاعبون المنضمون: {', '.join(players_joined_names)}\n"
@@ -376,18 +378,18 @@ class GameBot:
         if not game or game.get('status') != 'waiting_teams_join' or game.get('game_type') != 'teams':
             await query.answer("هذه الجولة للانضمام للفريق قد انتهت أو لا توجد لعبة فرق نشطة!", show_alert=True)
             return
-
+        
         # Check if already in a team
         for existing_team_name in game['teams']:
             if user_id in [p['id'] for p in game['teams'][existing_team_name]]:
-                await query.answer(f"أنت مشترك بالفعل في الفريق {'الأزرق' if existing_team_name == 'blue' else 'الأحمر'}!", show_alert=True)
+                await query.answer(f"أنت مشترك بالفعل في الفريق {existing_team_name}!", show_alert=True)
                 return
 
         # Check team capacity
         if len(game['teams'][team_name]) >= game['team_size']:
-            await query.answer(f"الفريق {'الأزرق' if team_name == 'blue' else 'الأحمر'} ممتلئ! اكتملت الفرق.", show_alert=True)
+            await query.answer(f"الفريق {team_name} ممتلئ! اكتملت الفرق.", show_alert=True)
             return
-
+        
         game['teams'][team_name].append({'id': user_id, 'name': username})
         game['players'].append({'id': user_id, 'name': username, 'team': team_name}) # Keep a flat list for score tracking
         game['scores'][user_id] = 0 # Initialize score for each player
@@ -402,20 +404,21 @@ class GameBot:
             [InlineKeyboardButton("🔵 الانضمام للفريق الأزرق", callback_data="join_team_blue")],
             [InlineKeyboardButton("🔴 الانضمام للفريق الأحمر", callback_data="join_team_red")]
         ]
-
+        
         if all_teams_full:
             # Add a 'Start Game' button for the creator
             keyboard.append([InlineKeyboardButton("🚀 بدء اللعبة", callback_data="start_teams_game")])
-
+            
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         await query.edit_message_text(
-            f"✅ **{username} انضم للفريق {'الأزرق' if team_name == 'blue' else 'الأحمر'}!**\n\n"
+            f"✅ **{username} انضم للفريق {team_name}!**\n\n"
             f"الفريق الأزرق ({len(game['teams']['blue'])}/{game['team_size']}): {', '.join(blue_players_names) if blue_players_names else 'لا يوجد لاعبون'}\n"
             f"الفريق الأحمر ({len(game['teams']['red'])}/{game['team_size']}): {', '.join(red_players_names) if red_players_names else 'لا يوجد لاعبون'}\n\n" +
             ("جميع الفرق اكتملت! اضغط على 'بدء اللعبة' لبدء الجولة." if all_teams_full else "في انتظار اكتمال الفرق..."),
             reply_markup=reply_markup, parse_mode='Markdown'
         )
+
 
     async def start_teams_game_callback(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         query = update.callback_query
@@ -431,7 +434,7 @@ class GameBot:
         if user_id != game['creator_id']:
             await query.answer("فقط من بدأ اللعبة يمكنه بدء اللعبة.", show_alert=True)
             return
-
+        
         if not (len(game['teams']['blue']) == game['team_size'] and len(game['teams']['red']) == game['team_size']):
             await query.answer("الفرق لم تكتمل بعد!", show_alert=True)
             return
@@ -447,7 +450,7 @@ class GameBot:
     async def start_game_1v1(self, chat_id: int, context: ContextTypes.DEFAULT_TYPE):
         game = games[chat_id]
         game['status'] = 'playing'
-
+        
         # Assign characters for 1v1
         for player in game['players']:
             category = game['selected_category'] # Use selected category
@@ -515,450 +518,158 @@ class GameBot:
                     logger.error(f"Failed to send private message to {player['id']}: {e}")
                     await context.bot.send_message(
                         chat_id,
-                        f"⚠️ لم أتمكن من إرسال رسالة خاصة إلى {player['name']} في فريق {'الأزرق' if team_name == 'blue' else 'الأحمر'}. "
+                        f"⚠️ لم أتمكن من إرسال رسالة خاصة إلى {player['name']}. "
                         "الرجاء التأكد من أنك بدأت محادثة معي أولاً! سيتم إلغاء اللعبة."
                     )
                     del games[chat_id]
                     return
-
-        blue_team_names = ", ".join([p['name'] for p in game['teams']['blue']])
-        red_team_names = ", ".join([p['name'] for p in game['teams']['red']])
-        await context.bot.send_message(
-            chat_id,
-            f"🚀 اللعبة بدأت بين الفرق! \n"
-            f"🔵 الفريق الأزرق: {blue_team_names}\n"
-            f"🔴 الفريق الأحمر: {red_team_names}\n\n"
-            f"شخصية الفريق الأزرق: مخفية\n"
-            f"شخصية الفريق الأحمر: مخفية"
-        )
+        await context.bot.send_message(chat_id, "🚀 اللعبة بدأت بين الفرق!")
         await asyncio.sleep(2)
         await self.start_round(chat_id, context)
 
     async def start_round(self, chat_id: int, context: ContextTypes.DEFAULT_TYPE):
         game = games.get(chat_id)
-        if not game:
+        if not game or game['status'] != 'playing':
             return
 
         if game['round'] > game['max_rounds']:
             await self.end_game(chat_id, context)
             return
 
-        game['status'] = 'asking_question'
-        game['waiting_for_answer'] = False
-        game['pending_guess_confirmation'] = None # Clear any pending guess from previous rounds
-
-        current_round_msg = f"--- الجولة {game['round']} من {game['max_rounds']} ---"
-        await context.bot.send_message(chat_id, current_round_msg, parse_mode='Markdown')
-
         if game['game_type'] == '1v1':
-            player1 = game['players'][0]
-            player2 = game['players'][1]
+            player1_id = game['players'][0]['id']
+            player2_id = game['players'][1]['id']
 
-            # Determine who asks the question based on the round (or flip a coin for first round)
-            if game['round'] % 2 != 0: # Odd rounds, player 1 asks
-                question_asker = player1
-                answerer = player2
-            else: # Even rounds, player 2 asks
-                question_asker = player2
-                answerer = player1
+            # Determine whose turn it is
+            current_player_idx = (game['round'] - 1) % 2
+            game['current_turn_player_id'] = game['players'][current_player_idx]['id']
+            game['current_turn_player_name'] = game['players'][current_player_idx]['name']
+            
+            # The other player is the answerer
+            answerer_idx = (current_player_idx + 1) % 2
+            game['answerer_id'] = game['players'][answerer_idx]['id']
+            game['answerer_name'] = game['players'][answerer_idx]['name']
 
-            game['question_asker'] = question_asker['id']
-            game['answerer_id'] = answerer['id'] # The one whose character is being guessed/answered about
 
             await context.bot.send_message(
                 chat_id,
-                f" الدور الآن على {question_asker['name']} لطرح سؤال لـ {answerer['name']} عن شخصيته. \n"
-                f"الرجاء طرح سؤال بـ 'نعم' أو 'لا' فقط.\n"
-                f"إذا كنت تعتقد أنك تعرف الشخصية، يمكنك التخمين باستخدام `/guess <اسم_الشخصية>` (تخمين واحد فقط لكل جولة).\n"
-                f"إذا كنت لا تستطيع الإجابة أو ترغب في منح النقطة للخصم، استخدم أمر /approve."
+                f"--- **الجولة {game['round']} من {game['max_rounds']}** ---\n\n"
+                f" الدور الآن على اللاعب **{game['current_turn_player_name']}**! "
+                f"اطرح سؤالًا بنعم/لا لتخمين شخصية **{game['answerer_name']}**.\n"
+                "يمكنك أيضًا محاولة التخمين مباشرة بقول \"أعتقد أن الشخصية هي [اسم الشخصية]\".",
+                parse_mode='Markdown'
             )
+            game['waiting_for_answer'] = False # Reset for new question
 
         elif game['game_type'] == 'teams':
-            current_team_name = game['current_team_turn'] # 'blue' or 'red'
-            current_team_players = game['teams'][current_team_name]
-            other_team_name = 'red' if current_team_name == 'blue' else 'blue'
-            other_team_players = game['teams'][other_team_name]
+            current_team = game['current_team_turn']
+            other_team = 'red' if current_team == 'blue' else 'blue'
 
-            # The current team asks, the other team answers
-            question_asker_team_name = current_team_name
-            answerer_team_name = other_team_name
-
-            game['question_asker'] = [p['id'] for p in current_team_players] # All players in asking team can ask
-            game['answerer_id'] = [p['id'] for p in other_team_players] # All players in answering team can answer
-
-            question_asker_names = ", ".join([p['name'] for p in current_team_players])
-            answerer_names = ", ".join([p['name'] for p in other_team_players])
-
+            # Determine the character to guess
+            character_to_guess_name = game['team_characters'][other_team]['name']
+            
+            # Message to the current team
+            team_members_names = [p['name'] for p in game['teams'][current_team]]
+            
             await context.bot.send_message(
                 chat_id,
-                f" الدور الآن على الفريق {'الأزرق' if question_asker_team_name == 'blue' else 'الأحمر'} ({question_asker_names}) لطرح سؤال للفريق {'الأزرق' if answerer_team_name == 'blue' else 'الأحمر'} ({answerer_names}) عن شخصيته.\n"
-                f"الرجاء طرح سؤال بـ 'نعم' أو 'لا' فقط.\n"
-                f"إذا كنت تعتقد أن فريقك يعرف الشخصية، يمكن لأي عضو من الفريق التخمين باستخدام `/guess <اسم_الشخصية>` (تخمين واحد فقط لكل جولة).\n"
-                f"إذا كان الفريق لا يستطيع الإجابة أو يرغب في منح النقطة للخصم، يمكن لأي عضو من الفريق استخدام أمر /approve."
+                f"--- **الجولة {game['round']} من {game['max_rounds']}** ---\n\n"
+                f"الآن دور الفريق **{'الأزرق' if current_team == 'blue' else 'الأحمر'}**! "
+                f"({', '.join(team_members_names)})\n"
+                f"اطرحوا سؤالًا بنعم/لا لتخمين شخصية الفريق **{'الأحمر' if current_team == 'blue' else 'الأزرق'}**.\n"
+                f"يمكنكم أيضًا محاولة التخمين مباشرة بقول \"أعتقد أن الشخصية هي [اسم الشخصية]\".",
+                parse_mode='Markdown'
             )
-            # Toggle current_team_turn for the next round
-            game['current_team_turn'] = other_team_name
-
+            game['waiting_for_answer'] = False # Reset for new question
 
     async def handle_message(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         chat_id = update.effective_chat.id
         user_id = update.effective_user.id
-        message_text = update.message.text.strip()
+        text = update.message.text.strip()
+        username = update.effective_user.first_name
+
         game = games.get(chat_id)
 
-        if not game or game.get('status') != 'asking_question':
-            return # Not in a game or not in the right phase
-
-        # Simplified for now: Assume any text is a question or guess attempt
-        # More robust parsing for questions vs. guesses would be needed here.
-        # For now, let's just make sure the user sending the message is involved in the game.
-        is_player = any(p['id'] == user_id for p in game['players'])
-        if not is_player:
-            return
+        if not game or game['status'] != 'playing':
+            return # Ignore messages if no game or not in playing status
 
         if game['game_type'] == '1v1':
-            if user_id == game['question_asker']:
-                # This player is asking a question
-                game['waiting_for_answer'] = True
-                await context.bot.send_message(
-                    chat_id,
-                    f"تم طرح السؤال. الآن على {next(p['name'] for p in game['players'] if p['id'] == game['answerer_id'])} الإجابة بـ نعم أو لا باستخدام الأزرار:"
-                    , reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("نعم", callback_data="answer_yes"),
-                         InlineKeyboardButton("لا", callback_data="answer_no")]
-                    ])
-                )
-            elif user_id == game['answerer_id']:
-                # This player should be answering, but we're expecting button presses for answers.
-                # If they type, it's an invalid action for answering here.
-                await update.message.reply_text("الرجاء استخدام الأزرار للإجابة بنعم أو لا.")
+            current_turn_player_id = game['current_turn_player_id']
+            answerer_id = game['answerer_id']
+            
+            if user_id == current_turn_player_id:
+                # Player asking a question or making a guess
+                if text.lower().startswith("أعتقد أن الشخصية هي"):
+                    guessed_character_name = text.lower().replace("أعتقد أن الشخصية هي", "").strip()
+                    await self.handle_guess(chat_id, user_id, username, guessed_character_name, context)
+                else:
+                    # Assume it's a question
+                    game['question_asker'] = user_id
+                    game['waiting_for_answer'] = True
+
+                    keyboard = [
+                        [InlineKeyboardButton("✅ نعم", callback_data="answer_yes")],
+                        [InlineKeyboardButton("❌ لا", callback_data="answer_no")]
+                    ]
+                    reply_markup = InlineKeyboardMarkup(keyboard)
+
+                    await context.bot.send_message(
+                        chat_id,
+                        f"**{game['answerer_name']}**، هل إجابة سؤال \"{text}\" هي:",
+                        reply_markup=reply_markup, parse_mode='Markdown'
+                    )
+            elif user_id == answerer_id and game['waiting_for_answer']:
+                await update.message.reply_text("الرجاء استخدام الأزرار للإجابة على السؤال.")
             else:
-                await update.message.reply_text("ليس دورك في اللعبة حالياً.")
+                await update.message.reply_text(f"الرجاء الانتظار، ليس دورك يا {username}.")
 
         elif game['game_type'] == 'teams':
-            user_team = next((p['team'] for p in game['players'] if p['id'] == user_id), None)
-            if not user_team: # Should not happen if is_player check passes
-                return
+            current_team_name = game['current_team_turn']
+            current_team_members_ids = [p['id'] for p in game['teams'][current_team_name]]
+            other_team_name = 'red' if current_team_name == 'blue' else 'blue'
 
-            if user_team == game['current_team_turn']: # If it's the asking team's turn
-                # This team is asking a question
-                game['waiting_for_answer'] = True
-                other_team_name = 'red' if user_team == 'blue' else 'blue'
-                await context.bot.send_message(
-                    chat_id,
-                    f"تم طرح السؤال من الفريق {'الأزرق' if user_team == 'blue' else 'الأحمر'}. الآن على الفريق {'الأزرق' if other_team_name == 'blue' else 'الأحمر'} الإجابة بـ نعم أو لا باستخدام الأزرار:"
-                    , reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("نعم", callback_data="answer_yes"),
-                         InlineKeyboardButton("لا", callback_data="answer_no")]
-                    ])
-                )
-            elif user_team != game['current_team_turn'] and game['waiting_for_answer']: # If it's the answering team's turn
-                 await update.message.reply_text("الرجاء استخدام الأزرار للإجابة بنعم أو لا.")
+            # A player from the current team is asking a question or making a guess
+            if user_id in current_team_members_ids:
+                if text.lower().startswith("أعتقد أن الشخصية هي"):
+                    guessed_character_name = text.lower().replace("أعتقد أن الشخصية هي", "").strip()
+                    await self.handle_team_guess(chat_id, user_id, current_team_name, guessed_character_name, context)
+                else:
+                    # Assume it's a question
+                    game['question_asker'] = user_id # Store the specific player who asked
+                    game['waiting_for_answer'] = True
+                    game['answerer_id'] = [p['id'] for p in game['teams'][other_team_name]] # All members of the other team can answer
+
+                    keyboard = [
+                        [InlineKeyboardButton("✅ نعم", callback_data="answer_yes")],
+                        [InlineKeyboardButton("❌ لا", callback_data="answer_no")]
+                    ]
+                    reply_markup = InlineKeyboardMarkup(keyboard)
+                    
+                    # Notify the other team to answer
+                    await context.bot.send_message(
+                        chat_id,
+                        f"فريق **{'الأحمر' if current_team_name == 'blue' else 'الأزرق'}**، "
+                        f"هل إجابة سؤال \"{text}\" هي:",
+                        reply_markup=reply_markup, parse_mode='Markdown'
+                    )
+            # A player from the other team (the one whose character is being guessed) is trying to answer
+            elif user_id in [p['id'] for p in game['teams'][other_team_name]] and game['waiting_for_answer']:
+                await update.message.reply_text("الرجاء استخدام الأزرار للإجابة على السؤال.")
             else:
-                await update.message.reply_text("ليس دور فريقك في اللعبة حالياً.")
-
-    async def answer_callback(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        query = update.callback_query
-        await query.answer()
-        chat_id = query.message.chat_id
-        user_id = query.from_user.id
-        answer = query.data.replace("answer_", "")
-
-        game = games.get(chat_id)
-        if not game or game.get('status') != 'asking_question' or not game.get('waiting_for_answer'):
-            await query.edit_message_text("هذا السؤال انتهت صلاحيته أو ليست هناك جولة نشطة للإجابة.")
-            return
-
-        if game['game_type'] == '1v1':
-            if user_id != game['answerer_id']:
-                await query.answer("أنت لست اللاعب الذي يجب أن يجيب على هذا السؤال.", show_alert=True)
-                return
-
-            answered_player_name = next(p['name'] for p in game['players'] if p['id'] == user_id)
-            await query.edit_message_text(f"{answered_player_name} أجاب: **{answer.upper()}**", parse_mode='Markdown')
-            game['waiting_for_answer'] = False
-            # Logic to prompt for next action or transition to guess phase
-            await context.bot.send_message(
-                chat_id,
-                f"أجاب {answered_player_name} بـ **{answer.upper()}**. الآن حان دور {next(p['name'] for p in game['players'] if p['id'] == game['question_asker'])} إما لطرح سؤال آخر أو التخمين."
-            )
-            # In a full game, you'd increment a question count or manage turns here.
-            # For simplicity, let's move to the next round if no guess is made directly.
-            # Or perhaps allow another question from the same player? Need clear rules.
-            # For now, let's assume one question per turn cycle.
-            # Simplified transition for demonstration, needs proper turn management
-            # self.game['current_turn'] = (self.game['current_turn'] + 1) % len(self.game['players'])
-            # await self.start_round(chat_id, context)
-
-        elif game['game_type'] == 'teams':
-            user_team = next((p['team'] for p in game['players'] if p['id'] == user_id), None)
-            if not user_team or user_team not in game['answerer_id']: # Check if user is part of the answering team
-                await query.answer("أنت لست عضواً في الفريق الذي يجب أن يجيب على هذا السؤال.", show_alert=True)
-                return
-
-            answered_team_name = 'الأزرق' if user_team == 'blue' else 'الأحمر'
-            await query.edit_message_text(f"الفريق {answered_team_name} أجاب: **{answer.upper()}**", parse_mode='Markdown')
-            game['waiting_for_answer'] = False
-            # Logic to prompt for next action for the asking team
-            asking_team_name = 'الأزرق' if game['current_team_turn'] == 'blue' else 'الأحمر' # This is the team that just asked
-            await context.bot.send_message(
-                chat_id,
-                f"أجاب الفريق {answered_team_name} بـ **{answer.upper()}**. الآن حان دور الفريق {asking_team_name} لطرح سؤال آخر أو التخمين."
-            )
-            # Similar to 1v1, proper turn/question management needed here.
-
-
-    async def approve_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        chat_id = update.effective_chat.id
-        user_id = update.effective_user.id
-        game = games.get(chat_id)
-
-        if not game or game.get('status') != 'playing':
-            await update.message.reply_text("لا توجد لعبة نشطة حالياً لاستخدام هذا الأمر.")
-            return
-
-        if game['game_type'] == '1v1':
-            # Check if the user is one of the two players
-            player_ids = [p['id'] for p in game['players']]
-            if user_id not in player_ids:
-                await update.message.reply_text("أنت لست لاعباً في هذه اللعبة.")
-                return
-
-            # Determine who the opponent is
-            opponent_id = [p_id for p_id in player_ids if p_id != user_id][0]
-            opponent_name = next(p['name'] for p in game['players'] if p['id'] == opponent_id)
-            user_name = update.effective_user.first_name
-            user_char = game['characters'][user_id]['name']
-
-            # Grant point to opponent
-            game['scores'][opponent_id] += 1
-            await update.message.reply_text(
-                f"🚨 **{user_name} استخدم أمر /approve!** 🚨\n"
-                f"هذا يعني أن {user_name} يقر بخسارته لهذه الجولة، ويمنح نقطة لخصمه {opponent_name}.\n\n"
-                f"الشخصية التي كان {user_name} يخمنها هي: **{user_char}**\n"
-                f"النقطة تذهب لـ {opponent_name}!"
-            , parse_mode='Markdown')
-
-            await self.end_round(chat_id, context)
-
-        elif game['game_type'] == 'teams':
-            user_player_data = next((p for p in game['players'] if p['id'] == user_id), None)
-            if not user_player_data:
-                await update.message.reply_text("أنت لست عضواً في أي فريق في هذه اللعبة.")
-                return
-
-            user_team_name = user_player_data['team'] # 'blue' or 'red'
-            opponent_team_name = 'red' if user_team_name == 'blue' else 'blue'
-
-            # Find a player from the opponent team to attribute the point to (or just update team score)
-            # For now, let's update individual scores but also attribute to the team concept.
-            # Assuming team scores are sum of individual scores within the team for simplicity.
-            # You might want a dedicated 'team_scores' dictionary.
-            # Let's give a point to one arbitrary player in the opposing team,
-            # or you can implement a separate team score.
-            # For this implementation, we'll give the point to a random player from the opposing team for tracking.
-
-            if game['teams'][opponent_team_name]:
-                point_receiver_player = random.choice(game['teams'][opponent_team_name])
-                game['scores'][point_receiver_player['id']] += 1
-                point_receiver_name = point_receiver_player['name']
-                team_awarded_message = f"تذهب النقطة للفريق {'الأزرق' if opponent_team_name == 'blue' else 'الأحمر'}!"
-            else:
-                point_receiver_name = "لا يوجد لاعبين في الفريق الخصم (خطأ منطقي!)"
-                team_awarded_message = "لم يتم منح النقطة بسبب عدم وجود لاعبين في الفريق الخصم."
-
-
-            user_team_arabic_name = 'الأزرق' if user_team_name == 'blue' else 'الأحمر'
-            opponent_team_arabic_name = 'الأزرق' if opponent_team_name == 'blue' else 'الأحمر'
-            user_team_char_name = game['team_characters'][user_team_name]['name']
-
-            await update.message.reply_text(
-                f"🚨 **أحد أعضاء الفريق {user_team_arabic_name} ({update.effective_user.first_name}) استخدم أمر /approve!** 🚨\n"
-                f"هذا يعني أن الفريق {user_team_arabic_name} يقر بخسارته لهذه الجولة.\n\n"
-                f"الشخصية التي كان الفريق {user_team_arabic_name} يخمنها هي: **{user_team_char_name}**\n"
-                f"{team_awarded_message}"
-            , parse_mode='Markdown')
-
-            await self.end_round(chat_id, context)
-
-    async def end_round(self, chat_id: int, context: ContextTypes.DEFAULT_TYPE):
-        game = games.get(chat_id)
-        if not game:
-            return
-
-        game['round'] += 1
-        game['status'] = 'round_ended' # Temporarily set, will move to asking_question after delay
-        game['waiting_for_answer'] = False
-        game['question_asker'] = None
-        game['answerer_id'] = None
-        game['pending_guess_confirmation'] = None
-
-        await self.show_scores(chat_id, context) # Show scores after each round
-
-        if game['round'] <= game['max_rounds']:
-            await asyncio.sleep(5) # Pause before next round
-            await context.bot.send_message(chat_id, "بدء الجولة التالية...")
-            await self.start_round(chat_id, context)
-        else:
-            await self.end_game(chat_id, context)
-
-    async def show_scores(self, chat_id: int, context: ContextTypes.DEFAULT_TYPE):
-        game = games.get(chat_id)
-        if not game:
-            return
-
-        score_message = "🏆 **النتائج الحالية:**\n\n"
-        if game['game_type'] == '1v1':
-            player1_id = game['players'][0]['id']
-            player2_id = game['players'][1]['id']
-            player1_name = next(p['name'] for p in game['players'] if p['id'] == player1_id)
-            player2_name = next(p['name'] for p in game['players'] if p['id'] == player2_id)
-
-            score_message += f"{player1_name}: {game['scores'].get(player1_id, 0)} نقطة\n"
-            score_message += f"{player2_name}: {game['scores'].get(player2_id, 0)} نقطة\n"
-        elif game['game_type'] == 'teams':
-            blue_team_score = sum(game['scores'].get(p['id'], 0) for p in game['teams']['blue'])
-            red_team_score = sum(game['scores'].get(p['id'], 0) for p in game['teams']['red'])
-            score_message += f"🔵 الفريق الأزرق: {blue_team_score} نقطة\n"
-            score_message += f"🔴 الفريق الأحمر: {red_team_score} نقطة\n"
-
-        await context.bot.send_message(chat_id, score_message, parse_mode='Markdown')
-
-
-    async def end_game(self, chat_id: int, context: ContextTypes.DEFAULT_TYPE):
-        game = games.get(chat_id)
-        if not game:
-            return
-
-        final_scores_message = "🎉 **اللعبة انتهت! النتائج النهائية:** 🎉\n\n"
-        if game['game_type'] == '1v1':
-            player1_id = game['players'][0]['id']
-            player2_id = game['players'][1]['id']
-            player1_name = next(p['name'] for p in game['players'] if p['id'] == player1_id)
-            player2_name = next(p['name'] for p in game['players'] if p['id'] == player2_id)
-
-            score1 = game['scores'].get(player1_id, 0)
-            score2 = game['scores'].get(player2_id, 0)
-
-            final_scores_message += f"{player1_name}: {score1} نقطة\n"
-            final_scores_message += f"{player2_name}: {score2} نقطة\n\n"
-
-            if score1 > score2:
-                final_scores_message += f"👑 **الفائز هو {player1_name}! تهانينا!**"
-            elif score2 > score1:
-                final_scores_message += f"👑 **الفائز هو {player2_name}! تهانينا!**"
-            else:
-                final_scores_message += "🤝 **تعادل! لا يوجد فائز في هذه اللعبة.**"
-        elif game['game_type'] == 'teams':
-            blue_team_score = sum(game['scores'].get(p['id'], 0) for p in game['teams']['blue'])
-            red_team_score = sum(game['scores'].get(p['id'], 0) for p in game['teams']['red'])
-
-            final_scores_message += f"🔵 الفريق الأزرق: {blue_team_score} نقطة\n"
-            final_scores_message += f"🔴 الفريق الأحمر: {red_team_score} نقطة\n\n"
-
-            if blue_team_score > red_team_score:
-                final_scores_message += "👑 **الفائز هو الفريق الأزرق! تهانينا!**"
-            elif red_team_score > blue_team_score:
-                final_scores_message += "👑 **الفائز هو الفريق الأحمر! تهانينا!**"
-            else:
-                final_scores_message += "🤝 **تعادل! لا يوجد فائز في هذه اللعبة.**"
-
-        await context.bot.send_message(chat_id, final_scores_message, parse_mode='Markdown')
-        del games[chat_id] # Clear game data
-
-    async def cancel_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        chat_id = update.effective_chat.id
-        user_id = update.effective_user.id
-        game = games.get(chat_id)
-
-        if not game:
-            await update.message.reply_text("لا توجد لعبة نشطة في هذه المجموعة لإلغائها.")
-            return
-
-        if not await self.is_admin(chat_id, user_id, context):
-            await update.message.reply_text("فقط المشرفون يمكنهم إلغاء اللعبة.")
-            return
-
-        del games[chat_id]
-        await update.message.reply_text("تم إلغاء اللعبة بنجاح!")
-
-    async def rules_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        chat_id = update.effective_chat.id
-        game = games.get(chat_id)
-
-        rules_text = (
-            "📜 **قواعد لعبة تخمين الشخصيات:**\n\n"
-            "**الهدف:** تخمين الشخصية السرية للخصم/الفريق الآخر عن طريق طرح أسئلة 'نعم/لا'.\n\n"
-            "**بدء اللعبة:**\n"
-            "1. ابدأ اللعبة باستخدام الأمر /start. (يجب أن تكون مشرفاً).\n"
-            "2. اختر فئة الشخصيات (أنمي، أفلام، إلخ).\n"
-            "3. اختر نمط اللعبة (1 ضد 1 أو فرق).\n"
-            "4. في نمط الفرق، اختر حجم الفريق (2 ضد 2 أو 3 ضد 3).\n"
-            "5. انضم إلى اللعبة/الفريق. بمجرد اكتمال اللاعبين/الفرق، تبدأ اللعبة.\n\n"
-            "**اللعب:**\n"
-            "• سيتلقى كل لاعب (في 1 ضد 1) أو كل فريق (في الفرق) شخصية سرية عبر رسالة خاصة. *حافظ على سريتها!*\n"
-            "• يتناوب اللاعبون/الفرق على طرح أسئلة يمكن الإجابة عليها بـ 'نعم' أو 'لا' فقط.\n"
-            "• بعد السؤال، سيتم عرض أزرار 'نعم'/'لا' للإجابة.\n"
-            "• يسمح بتخمين واحد فقط لكل دورة (بعد كل سؤال وإجابة، يحق للفريق/اللاعب السائل التخمين).\n\n"
-            "**الأوامر الهامة:**\n"
-            "• `/start`: لبدء لعبة جديدة (للمشرفين فقط).\n"
-            "• `/guess <اسم_الشخصية>`: لتخمين الشخصية (استخدمها بحذر! تخمين خاطئ قد يكلفك النقطة).\n"
-            "• `/approve`: (جديد!) إذا كنت اللاعب/الفريق الذي يجب عليه الإجابة، يمكنك استخدام هذا الأمر للإقرار بالخسارة ومنح النقطة للخصم/الفريق الآخر، مما ينهي الجولة.\n"
-            "• `/cancel`: لإلغاء اللعبة الحالية (للمشرفين فقط).\n"
-            "• `/score`: لعرض النتائج الحالية.\n"
-            "• `/rules`: لعرض هذه القواعد مرة أخرى.\n"
-            "• `/forfeit`: للاستسلام وإنهاء اللعبة (للمشرفين فقط، أو للجميع حسب قواعد إضافية).\n\n"
-            "**الفوز:**\n"
-            "• اللاعب/الفريق الذي يخمن الشخصية السرية للخصم بشكل صحيح يكسب نقطة.\n"
-            "• اللعبة تستمر لعدد محدد من الجولات.\n"
-            "• الفائز هو من يجمع أكبر عدد من النقاط في نهاية الجولات.\n\n"
-            "استمتع باللعب!"
-        )
-        await context.bot.send_message(chat_id, rules_text, parse_mode='Markdown')
-
-    async def score_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        chat_id = update.effective_chat.id
-        game = games.get(chat_id)
-
-        if not game:
-            await update.message.reply_text("لا توجد لعبة نشطة لعرض النتائج.")
-            return
-        await self.show_scores(chat_id, context)
-
-    async def forfeit_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        chat_id = update.effective_chat.id
-        user_id = update.effective_user.id
-        game = games.get(chat_id)
-
-        if not game:
-            await update.message.reply_text("لا توجد لعبة نشطة للاستسلام منها.")
-            return
-
-        # Forfeit can be used by anyone in the game to end it.
-        # Or you can restrict it to admin only or only for the current player/team
-        is_player_in_game = False
-        if game['game_type'] == '1v1':
-            is_player_in_game = any(p['id'] == user_id for p in game['players'])
-        elif game['game_type'] == 'teams':
-            is_player_in_game = any(user_id in [p['id'] for p in team] for team in game['teams'].values())
-
-        if not is_player_in_game and not await self.is_admin(chat_id, user_id, context):
-            await update.message.reply_text("فقط اللاعبون المشاركون أو المشرفون يمكنهم الاستسلام وإنهاء اللعبة.")
-            return
-
-        await context.bot.send_message(
-            chat_id,
-            f"💔 **{update.effective_user.first_name} استسلم!**\n"
-            "تم إنهاء اللعبة."
-        , parse_mode='Markdown')
-        await self.end_game(chat_id, context) # Call end_game to show final scores and clear data
+                await update.message.reply_text(f"الرجاء الانتظار، ليس دور فريقك يا {username}.")
 
 
     async def callback_query_handler(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         query = update.callback_query
-        # Ensure query.data exists
-        if query.data is None:
-            await query.answer("خطأ: لا توجد بيانات للزر.")
+        await query.answer()
+        chat_id = query.message.chat_id
+        user_id = query.from_user.id
+        username = query.from_user.first_name
+
+        game = games.get(chat_id)
+
+        if not game:
+            await query.edit_message_text("لا توجد لعبة نشطة حاليًا في هذه المجموعة.")
             return
 
         if query.data.startswith("select_category_"):
@@ -973,12 +684,514 @@ class GameBot:
             await self.join_team_callback(update, context)
         elif query.data == "start_teams_game":
             await self.start_teams_game_callback(update, context)
-        elif query.data.startswith("answer_"):
-            await self.answer_callback(update, context)
-        # Add other callback handlers here as you implement more interactive features
+        elif query.data in ["answer_yes", "answer_no"]:
+            await self.handle_answer_callback(update, context)
+        elif query.data == "confirm_guess_yes":
+            await self.handle_guess_confirmation(chat_id, user_id, True, context)
+        elif query.data == "confirm_guess_no":
+            await self.handle_guess_confirmation(chat_id, user_id, False, context)
+
+
+    async def handle_answer_callback(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        query = update.callback_query
+        await query.answer()
+        chat_id = query.message.chat_id
+        user_id = query.from_user.id
+        answer = query.data.replace("answer_", "") # 'yes' or 'no'
+
+        game = games.get(chat_id)
+
+        if not game or not game.get('waiting_for_answer'):
+            await query.answer("لا يوجد سؤال معلق للإجابة عليه.", show_alert=True)
+            return
+        
+        if game['game_type'] == '1v1':
+            # In 1v1, only the designated answerer can answer
+            if user_id != game['answerer_id']:
+                await query.answer("ليس دورك للإجابة على السؤال.", show_alert=True)
+                return
+            
+            await query.edit_message_text(
+                f"{query.message.text}\n\nالإجابة: **{ 'نعم' if answer == 'yes' else 'لا' }**",
+                parse_mode='Markdown'
+            )
+            game['waiting_for_answer'] = False
+            await self.next_turn(chat_id, context)
+
+        elif game['game_type'] == 'teams':
+            # In teams, any player from the 'other' team can answer
+            current_team_name = game['current_team_turn']
+            other_team_name = 'red' if current_team_name == 'blue' else 'blue'
+            other_team_members_ids = [p['id'] for p in game['teams'][other_team_name]]
+
+            if user_id not in other_team_members_ids:
+                await query.answer("ليس دور فريقك للإجابة على السؤال.", show_alert=True)
+                return
+
+            await query.edit_message_text(
+                f"{query.message.text}\n\nأجاب الفريق **{'الأحمر' if current_team_name == 'blue' else 'الأزرق'}**: **{ 'نعم' if answer == 'yes' else 'لا' }**",
+                parse_mode='Markdown'
+            )
+            game['waiting_for_answer'] = False
+            await self.next_turn(chat_id, context)
+
+
+    async def handle_guess(self, chat_id: int, guesser_id: int, guesser_name: str, guessed_character_name: str, context: ContextTypes.DEFAULT_TYPE):
+        game = games.get(chat_id)
+        if not game or game['status'] != 'playing' or game.get('game_type') != '1v1':
+            return
+
+        # Ensure it's the guesser's turn
+        if guesser_id != game['current_turn_player_id']:
+            await context.bot.send_message(chat_id, f"الرجاء الانتظار، ليس دورك للتخمين يا {guesser_name}.")
+            return
+        
+        answerer_id = game['answerer_id']
+        answerer_name = game['answerer_name']
+        actual_character_name = game['characters'][answerer_id]['name']
+
+        # Store pending guess for confirmation
+        game['pending_guess_confirmation'] = {
+            'guesser_id': guesser_id,
+            'guesser_name': guesser_name,
+            'guessed_name': guessed_character_name,
+            'answerer_id': answerer_id,
+            'actual_character_name': actual_character_name
+        }
+
+        keyboard = [
+            [InlineKeyboardButton("✅ نعم، هذا صحيح!", callback_data="confirm_guess_yes")],
+            [InlineKeyboardButton("❌ لا، هذا ليس صحيحًا.", callback_data="confirm_guess_no")]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await context.bot.send_message(
+            chat_id,
+            f"**{answerer_name}**، هل تخمين **{guesser_name}** بأن الشخصية هي \"**{guessed_character_name}**\" صحيح؟",
+            reply_markup=reply_markup, parse_mode='Markdown'
+        )
+
+    async def handle_team_guess(self, chat_id: int, guesser_id: int, guesser_team_name: str, guessed_character_name: str, context: ContextTypes.DEFAULT_TYPE):
+        game = games.get(chat_id)
+        if not game or game['status'] != 'playing' or game.get('game_type') != 'teams':
+            return
+
+        # Ensure it's the guesser's team's turn
+        current_team_name = game['current_team_turn']
+        current_team_members_ids = [p['id'] for p in game['teams'][current_team_name]]
+        if guesser_id not in current_team_members_ids:
+            await context.bot.send_message(chat_id, f"الرجاء الانتظار، ليس دور فريقك للتخمين.")
+            return
+        
+        other_team_name = 'red' if current_team_name == 'blue' else 'blue'
+        actual_character_name = game['team_characters'][other_team_name]['name']
+
+        # Store pending guess for confirmation
+        game['pending_guess_confirmation'] = {
+            'guesser_id': guesser_id, # The player who initiated the guess
+            'guesser_team_name': guesser_team_name,
+            'guessed_name': guessed_character_name,
+            'answerer_team_name': other_team_name,
+            'answerer_ids': [p['id'] for p in game['teams'][other_team_name]],
+            'actual_character_name': actual_character_name
+        }
+
+        keyboard = [
+            [InlineKeyboardButton("✅ نعم، هذا صحيح!", callback_data="confirm_guess_yes")],
+            [InlineKeyboardButton("❌ لا، هذا ليس صحيحًا.", callback_data="confirm_guess_no")]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await context.bot.send_message(
+            chat_id,
+            f"فريق **{'الأحمر' if current_team_name == 'blue' else 'الأزرق'}**، "
+            f"هل تخمين الفريق **{'الأزرق' if current_team_name == 'blue' else 'الأحمر'}** بأن الشخصية هي \"**{guessed_character_name}**\" صحيح؟",
+            reply_markup=reply_markup, parse_mode='Markdown'
+        )
+
+
+    async def handle_guess_confirmation(self, chat_id: int, confirmer_id: int, is_correct: bool, context: ContextTypes.DEFAULT_TYPE):
+        game = games.get(chat_id)
+        if not game or not game.get('pending_guess_confirmation'):
+            await context.bot.send_message(chat_id, "لا يوجد تخمين معلق للتأكيد.")
+            return
+
+        pending_guess = game['pending_guess_confirmation']
+
+        if game['game_type'] == '1v1':
+            # Only the answerer can confirm the guess in 1v1
+            if confirmer_id != pending_guess['answerer_id']:
+                await context.bot.send_message(chat_id, "فقط اللاعب الآخر يمكنه تأكيد التخمين.")
+                return
+            
+            guesser_id = pending_guess['guesser_id']
+            guesser_name = pending_guess['guesser_name']
+            guessed_character_name = pending_guess['guessed_name']
+            actual_character_name = pending_guess['actual_character_name']
+
+            if is_correct:
+                if guessed_character_name.lower() == actual_character_name.lower():
+                    await context.bot.send_message(
+                        chat_id,
+                        f"🎉 **تخمين صحيح!**\n\n"
+                        f"لقد خمّن **{guesser_name}** شخصية **{actual_character_name}** بشكل صحيح!\n"
+                        f"تم إضافة نقطة لـ **{guesser_name}**.",
+                        parse_mode='Markdown'
+                    )
+                    game['scores'][guesser_id] += 1
+                else:
+                    await context.bot.send_message(
+                        chat_id,
+                        f"❌ **تخمين غير صحيح!**\n\n"
+                        f"للأسف، \"**{guessed_character_name}**\" ليست الشخصية الصحيحة.\n"
+                        f"الشخصية الحقيقية كانت **{actual_character_name}**.",
+                        parse_mode='Markdown'
+                    )
+                    # No score change, but turn ends
+            else:
+                await context.bot.send_message(
+                    chat_id,
+                    f"**{guesser_name}**، تخمينك \"**{guessed_character_name}**\" لم يكن صحيحًا. حاول مرة أخرى!",
+                    parse_mode='Markdown'
+                )
+            
+            game['pending_guess_confirmation'] = None # Clear pending guess
+            await self.end_round(chat_id, context)
+
+        elif game['game_type'] == 'teams':
+            # Any player from the 'answerer' team can confirm
+            answerer_team_members_ids = pending_guess['answerer_ids']
+            if confirmer_id not in answerer_team_members_ids:
+                await context.bot.send_message(chat_id, "فقط أعضاء الفريق الآخر يمكنهم تأكيد التخمين.")
+                return
+
+            guesser_team_name = pending_guess['guesser_team_name']
+            guessed_character_name = pending_guess['guessed_name']
+            actual_character_name = pending_guess['actual_character_name']
+
+            if is_correct:
+                if guessed_character_name.lower() == actual_character_name.lower():
+                    await context.bot.send_message(
+                        chat_id,
+                        f"🎉 **تخمين صحيح!**\n\n"
+                        f"لقد خمّن الفريق **{'الأزرق' if guesser_team_name == 'blue' else 'الأحمر'}** شخصية **{actual_character_name}** بشكل صحيح!\n"
+                        f"تم إضافة نقطة للفريق **{'الأزرق' if guesser_team_name == 'blue' else 'الأحمر'}**.",
+                        parse_mode='Markdown'
+                    )
+                    # Award score to all players in the guessing team
+                    for player in game['teams'][guesser_team_name]:
+                        game['scores'][player['id']] += 1
+                else:
+                    await context.bot.send_message(
+                        chat_id,
+                        f"❌ **تخمين غير صحيح!**\n\n"
+                        f"للأسف، \"**{guessed_character_name}**\" ليست الشخصية الصحيحة.\n"
+                        f"الشخصية الحقيقية كانت **{actual_character_name}**.",
+                        parse_mode='Markdown'
+                    )
+                    # No score change, but turn ends
+            else:
+                await context.bot.send_message(
+                    chat_id,
+                    f"الفريق **{'الأزرق' if guesser_team_name == 'blue' else 'الأحمر'}**، تخمينكم \"**{guessed_character_name}**\" لم يكن صحيحًا. حاولوا مرة أخرى!",
+                    parse_mode='Markdown'
+                )
+            
+            game['pending_guess_confirmation'] = None # Clear pending guess
+            await self.end_round(chat_id, context)
+
+
+    async def next_turn(self, chat_id: int, context: ContextTypes.DEFAULT_TYPE):
+        game = games.get(chat_id)
+        if not game or game['status'] != 'playing':
+            return
+
+        if game['game_type'] == '1v1':
+            # Switch current player and answerer for the next turn within the same round
+            game['current_turn_player_id'], game['answerer_id'] = game['answerer_id'], game['current_turn_player_id']
+            game['current_turn_player_name'], game['answerer_name'] = game['answerer_name'], game['current_turn_player_name']
+            
+            await context.bot.send_message(
+                chat_id,
+                f" الدور الآن على اللاعب **{game['current_turn_player_name']}**! "
+                f"اطرح سؤالًا بنعم/لا لتخمين شخصية **{game['answerer_name']}**.",
+                parse_mode='Markdown'
+            )
+        elif game['game_type'] == 'teams':
+            # Switch current team for the next turn within the same round
+            game['current_team_turn'] = 'red' if game['current_team_turn'] == 'blue' else 'blue'
+            current_team = game['current_team_turn']
+            other_team = 'red' if current_team == 'blue' else 'blue'
+            
+            team_members_names = [p['name'] for p in game['teams'][current_team]]
+            
+            await context.bot.send_message(
+                chat_id,
+                f"الآن دور الفريق **{'الأزرق' if current_team == 'blue' else 'الأحمر'}**! "
+                f"({', '.join(team_members_names)})\n"
+                f"اطرحوا سؤالًا بنعم/لا لتخمين شخصية الفريق **{'الأحمر' if current_team == 'blue' else 'الأزرق'}**.",
+                parse_mode='Markdown'
+            )
+        
+        # In both modes, after a question and answer, or an incorrect guess, it's the same round.
+        # The round only ends after a correct guess or if everyone had a chance to guess (which is handled by `end_round`).
+        # This simplifies the flow for questions vs. guesses.
+
+    async def end_round(self, chat_id: int, context: ContextTypes.DEFAULT_TYPE):
+        game = games.get(chat_id)
+        if not game or game['status'] != 'playing':
+            return
+        
+        game['round'] += 1
+        await self.start_round(chat_id, context) # Start next round or end game
+
+    async def score_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle /score command"""
+        chat_id = update.effective_chat.id
+        game = games.get(chat_id)
+
+        if not game:
+            await update.message.reply_text("لا توجد لعبة نشطة حاليًا.")
+            return
+
+        score_message = "📊 **النتائج الحالية:**\n\n"
+        if game['game_type'] == '1v1':
+            for player_id, score in game['scores'].items():
+                player_name = next((p['name'] for p in game['players'] if p['id'] == player_id), "لاعب غير معروف")
+                score_message += f"**{player_name}**: {score} نقطة\n"
+            score_message += f"\nالجولة الحالية: {game['round']} من {game['max_rounds']}"
+        elif game['game_type'] == 'teams':
+            team_scores = {'blue': 0, 'red': 0}
+            for player_id, score in game['scores'].items():
+                player_info = next((p for p in game['players'] if p['id'] == player_id), None)
+                if player_info and 'team' in player_info:
+                    team_scores[player_info['team']] += score
+            
+            score_message += f"🔵 **الفريق الأزرق**: {team_scores['blue']} نقطة\n"
+            score_message += f"🔴 **الفريق الأحمر**: {team_scores['red']} نقطة\n"
+            score_message += f"\nالجولة الحالية: {game['round']} من {game['max_rounds']}"
+
+        await update.message.reply_text(score_message, parse_mode='Markdown')
+
+    async def end_game(self, chat_id: int, context: ContextTypes.DEFAULT_TYPE):
+        game = games.pop(chat_id, None)
+        if not game:
+            await context.bot.send_message(chat_id, "لا توجد لعبة نشطة لإنهاءها.")
+            return
+
+        final_score_message = "🏆 **اللعبة انتهت!**\n\n**النتائج النهائية:**\n\n"
+
+        if game['game_type'] == '1v1':
+            sorted_scores = sorted(game['scores'].items(), key=lambda item: item[1], reverse=True)
+            for player_id, score in sorted_scores:
+                player_name = next((p['name'] for p in game['players'] if p['id'] == player_id), "لاعب غير معروف")
+                final_score_message += f"**{player_name}**: {score} نقطة\n"
+            
+            if len(sorted_scores) > 1 and sorted_scores[0][1] > sorted_scores[1][1]:
+                winner_name = next((p['name'] for p in game['players'] if p['id'] == sorted_scores[0][0]), "لاعب غير معروف")
+                final_score_message += f"\n🎉 **الفائز: {winner_name}!**"
+            elif len(sorted_scores) > 1 and sorted_scores[0][1] == sorted_scores[1][1]:
+                final_score_message += "\n🤝 **تعادل!**"
+
+        elif game['game_type'] == 'teams':
+            team_scores = {'blue': 0, 'red': 0}
+            for player_id, score in game['scores'].items():
+                player_info = next((p for p in game['players'] if p['id'] == player_id), None)
+                if player_info and 'team' in player_info:
+                    team_scores[player_info['team']] += score
+            
+            final_score_message += f"🔵 **الفريق الأزرق**: {team_scores['blue']} نقطة\n"
+            final_score_message += f"🔴 **الفريق الأحمر**: {team_scores['red']} نقطة\n"
+
+            if team_scores['blue'] > team_scores['red']:
+                final_score_message += "\n🎉 **الفائز: الفريق الأزرق!**"
+            elif team_scores['red'] > team_scores['blue']:
+                final_score_message += "\n🎉 **الفائز: الفريق الأحمر!**"
+            else:
+                final_score_message += "\n🤝 **تعادل!**"
+
+        await context.bot.send_message(chat_id, final_score_message, parse_mode='Markdown')
+
+    async def cancel_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle /cancel command"""
+        chat_id = update.effective_chat.id
+        user_id = update.effective_user.id
+
+        game = games.get(chat_id)
+
+        if not game:
+            await update.message.reply_text("لا توجد لعبة نشطة لإلغائها.")
+            return
+        
+        # Allow only the creator or an admin to cancel the game
+        if user_id == game['creator_id'] or await self.is_admin(chat_id, user_id, context):
+            del games[chat_id]
+            await update.message.reply_text("تم إلغاء اللعبة بنجاح.")
+        else:
+            await update.message.reply_text("فقط من بدأ اللعبة أو مشرف المجموعة يمكنه إلغاء اللعبة.")
+    
+    async def rules_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Display game rules."""
+        rules_text = (
+            "📜 **قواعد لعبة تخمين الشخصيات**\n\n"
+            "**نمط 1 ضد 1:**\n"
+            "• يبدأ اللعبة مشرف المجموعة /start.\n"
+            "• يتم اختيار فئة للعبة (مثال: أنمي، أفلام، كرة قدم، أعلام دول، ألعاب فيديو).\n"
+            "• ينضم لاعبان للعبة.\n"
+            "• يتلقى كل لاعب شخصية سرية من الفئة المختارة في رسالة خاصة.\n"
+            "• يتناوب اللاعبان على طرح أسئلة 'نعم/لا' لتخمين شخصية الخصم.\n"
+            "• يمكن للاعبين محاولة التخمين مباشرة بقول 'أعتقد أن الشخصية هي [اسم الشخصية]'.\n"
+            "• إذا كان التخمين صحيحًا، يحصل اللاعب على نقطة وتنتقل اللعبة للجولة التالية.\n"
+            "• إذا كان التخمين خاطئًا، يستمر الدور للخصم.\n"
+            "• تستمر اللعبة لـ 3 جولات، والفائز هو من يجمع نقاطًا أكثر.\n\n"
+            "**نمط الفرق:**\n"
+            "• يبدأ اللعبة مشرف المجموعة /start.\n"
+            "• يتم اختيار فئة للعبة ثم حجم الفريق (2 ضد 2 أو 3 ضد 3).\n"
+            "• ينضم اللاعبون إلى الفريق الأزرق أو الأحمر حتى تكتمل الفرق.\n"
+            "• يتلقى كل عضو في الفريق شخصية سرية مشتركة لفريقه في رسالة خاصة.\n"
+            "• يتناوب الفريقان على طرح أسئلة 'نعم/لا' لتخمين شخصية الفريق الخصم.\n"
+            "• يمكن لأي عضو من الفريق المعني الإجابة على السؤال بالأزرار.\n"
+            "• يمكن للفريق محاولة التخمين مباشرة بقول 'أعتقد أن الشخصية هي [اسم الشخصية]'.\n"
+            "• إذا كان التخمين صحيحًا، يحصل الفريق على نقطة وتنتقل اللعبة للجولة التالية.\n"
+            "• إذا كان التخمين خاطئًا، يستمر الدور للفريق الخصم.\n"
+            "• تستمر اللعبة لـ 3 جولات، والفريق الفائز هو من يجمع نقاطًا أكثر.\n\n"
+            "**الأوامر:**\n"
+            "• `/start`: لبدء لعبة جديدة (للمشرفين فقط).\n"
+            "• `/cancel`: لإلغاء اللعبة الحالية (لمن بدأ اللعبة أو المشرفين).\n"
+            "• `/score`: لمعرفة النتائج الحالية.\n"
+            "• `/rules`: لعرض هذه القواعد.\n"
+            "• `/forfeit`: للاستسلام في اللعبة (في وضع 1 ضد 1 فقط).\n"
+            "• `/approve`: (للمشرفين فقط) الموافقة على تخمين لاعب في حال وجود مشكلة تقنية.\n\n"
+            "استمتعوا باللعبة!"
+        )
+        await update.message.reply_text(rules_text, parse_mode='Markdown', disable_web_page_preview=True)
+
+    async def forfeit_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle /forfeit command to allow a player to surrender in 1v1."""
+        chat_id = update.effective_chat.id
+        user_id = update.effective_user.id
+        username = update.effective_user.first_name
+
+        game = games.get(chat_id)
+
+        if not game or game['status'] != 'playing':
+            await update.message.reply_text("لا توجد لعبة نشطة يمكنك الاستسلام فيها.")
+            return
+
+        if game['game_type'] != '1v1':
+            await update.message.reply_text("الاستسلام متاح فقط في نمط 1 ضد 1.")
+            return
+
+        if user_id not in [p['id'] for p in game['players']]:
+            await update.message.reply_text("أنت لست لاعبًا في هذه اللعبة.")
+            return
+        
+        # Identify the winner
+        winner_player = None
+        for player in game['players']:
+            if player['id'] != user_id:
+                winner_player = player
+                break
+        
+        if winner_player:
+            winner_name = winner_player['name']
+            winner_id = winner_player['id']
+            game['scores'][winner_id] += 1 # Award a point to the winner
+            await context.bot.send_message(
+                chat_id,
+                f"🏳️ **استسلام!**\n\n"
+                f"اللاعب **{username}** استسلم. تهانينا لـ **{winner_name}** على الفوز بالجولة!\n"
+                f"تم إضافة نقطة لـ **{winner_name}**.",
+                parse_mode='Markdown'
+            )
+        else:
+            # This case should theoretically not happen in a 1v1 game with 2 players
+            await context.bot.send_message(chat_id, f"اللاعب **{username}** استسلم. تم إنهاء الجولة.")
+
+        await self.end_round(chat_id, context) # Proceed to next round or end game
+
+    async def approve_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """
+        Admin command to manually approve a guess in case of technical issues.
+        Usage: /approve [player_id_who_guessed] [actual_character_name]
+        """
+        chat_id = update.effective_chat.id
+        user_id = update.effective_user.id
+        
+        # Only admins can use this command
+        if not await self.is_admin(chat_id, user_id, context):
+            await update.message.reply_text("ليس لديك الصلاحية لاستخدام هذا الأمر.")
+            return
+
+        if not context.args or len(context.args) < 2:
+            await update.message.reply_text("الاستخدام: `/approve [معرف_اللاعب_الذي_خمّن] [الاسم_الحقيقي_للشخصية]`", parse_mode='Markdown')
+            return
+
+        game = games.get(chat_id)
+        if not game or game['status'] != 'playing':
+            await update.message.reply_text("لا توجد لعبة نشطة للموافقة على تخمين فيها.")
+            return
+
+        try:
+            guesser_id = int(context.args[0])
+            actual_character_name = " ".join(context.args[1:]).strip()
+        except ValueError:
+            await update.message.reply_text("معرف اللاعب يجب أن يكون رقمًا صحيحًا.")
+            return
+
+        guesser_name = next((p['name'] for p in game['players'] if p['id'] == guesser_id), "لاعب غير معروف")
+
+        if game['game_type'] == '1v1':
+            # Find the other player (the answerer)
+            answerer_id = None
+            for player_id in game['characters'].keys():
+                if player_id != guesser_id:
+                    answerer_id = player_id
+                    break
+            
+            if not answerer_id:
+                await update.message.reply_text("لا يمكن تحديد اللاعب الآخر (صاحب الشخصية) في اللعبة.")
+                return
+
+            game['scores'][guesser_id] += 1
+            await context.bot.send_message(
+                chat_id,
+                f"✅ **تمت الموافقة يدويًا!**\n\n"
+                f"قام المشرف **{update.effective_user.first_name}** بالموافقة على تخمين **{guesser_name}** بأن الشخصية هي \"**{actual_character_name}**\" (أو ما يعادلها).\n"
+                f"تم إضافة نقطة لـ **{guesser_name}**.",
+                parse_mode='Markdown'
+            )
+            # End the round after manual approval
+            await self.end_round(chat_id, context)
+
+        elif game['game_type'] == 'teams':
+            guesser_team_name = None
+            for team_name, members in game['teams'].items():
+                if guesser_id in [m['id'] for m in members]:
+                    guesser_team_name = team_name
+                    break
+
+            if not guesser_team_name:
+                await update.message.reply_text("اللاعب المحدد ليس في أي فريق حاليًا.")
+                return
+
+            # Award score to all players in the guessing team
+            for player in game['teams'][guesser_team_name]:
+                game['scores'][player['id']] += 1
+            
+            await context.bot.send_message(
+                chat_id,
+                f"✅ **تمت الموافقة يدويًا!**\n\n"
+                f"قام المشرف **{update.effective_user.first_name}** بالموافقة على تخمين الفريق **{'الأزرق' if guesser_team_name == 'blue' else 'الأحمر'}** بأن الشخصية هي \"**{actual_character_name}**\" (أو ما يعادلها).\n"
+                f"تم إضافة نقطة للفريق **{'الأزرق' if guesser_team_name == 'blue' else 'الأحمر'}**.",
+                parse_mode='Markdown'
+            )
+            # End the round after manual approval
+            await self.end_round(chat_id, context)
+
 
     def setup_handlers(self, application: Application):
-        """Set up bot command and message handlers."""
+        """Set up the bot's command and message handlers."""
         application.add_handler(CommandHandler("start", self.start_command))
         application.add_handler(CommandHandler("cancel", self.cancel_command))
         application.add_handler(CommandHandler("rules", self.rules_command))
@@ -986,26 +1199,26 @@ class GameBot:
         application.add_handler(CommandHandler("forfeit", self.forfeit_command))
         application.add_handler(CommandHandler("approve", self.approve_command)) # Still keep as a fallback
         application.add_handler(CallbackQueryHandler(self.callback_query_handler))
-        application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, self.handle_message)) # Catch all text that's not a command
+        application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, self.handle_message))
 
     def run_bot(self, token: str):
         """Run the bot."""
         self.application = Application.builder().token(token).build()
         self.setup_handlers(self.application)
-
+        
         print("Bot is running...")
         self.application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 if __name__ == "__main__":
     bot_token = os.getenv('BOT_TOKEN')
-
+    
     if not bot_token:
         print("❌ Error: BOT_TOKEN not found!")
         print("Please create a .env file with your bot token:")
         print("BOT_TOKEN=your_bot_token_here")
         sys.exit(1)
-
+    
     bot = GameBot()
-
+    
     print("🤖 Starting Telegram Character Guessing Game Bot...")
     bot.run_bot(bot_token)
